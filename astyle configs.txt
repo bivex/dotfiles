@@ -5,4 +5,4 @@ For C#
 
 For C++
 
---style=allman --indent=spaces=4 --min-conditional-indent=2 --max-continuation-indent=40 --align-pointer=type --attach-namespaces --attach-classes --indent-classes --indent-modifiers --indent-switches --indent-cases --indent-labels --indent-preproc-block --pad-oper --pad-comma --pad-paren --pad-paren-in --close-templates --break-closing-braces --break-one-line-headers --add-braces --add-one-line-braces --keep-one-line-statements --convert-tabs --indent-col1-comments --break-blocks --mode=c
+--style=google --indent=spaces=2 --attach-namespaces --attach-classes --attach-inlines --attach-extern-c --indent-classes --indent-modifiers --indent-switches --indent-cases --indent-namespaces --indent-after-parens --indent-continuation=1 --break-blocks --pad-oper --pad-comma --pad-header --unpad-paren --delete-empty-lines --add-braces --convert-tabs --close-templates --max-code-length=80 --break-after-logical --mode=c
