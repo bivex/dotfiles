@@ -1,0 +1,81 @@
+{
+  // fast profile
+  "telemetry.telemetryLevel": "off",
+  
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": false
+  },
+  "editor.suggestOnTriggerCharacters": true,
+  "editor.acceptSuggestionOnEnter": "on",
+  "editor.snippetSuggestions": "top",
+  "editor.tabCompletion": "on",
+  "editor.wordBasedSuggestions": "off",
+  
+  "editor.minimap.enabled": false,
+  "editor.codeLens": false,
+  "editor.lightbulb.enabled": "off",
+  "editor.glyphMargin": false,
+  "editor.folding": false,
+  "editor.matchBrackets": "never",
+  "editor.colorDecorators": false,
+  "editor.links": false,
+  "editor.occurrencesHighlight": "off",
+  "editor.selectionHighlight": false,
+  "editor.renderLineHighlight": "none",
+  
+  "git.enabled": true,
+  "git.autorefresh": false,
+  "git.autofetch": false,
+  "git.decorations.enabled": false,
+  
+  "files.autoSave": "onFocusChange",
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/.next/**": true
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true
+  },
+  
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.next": true,
+    "**/coverage": true
+  },
+  "search.followSymlinks": false,
+  
+  // Extensions
+  "extensions.autoUpdate": false,
+  "extensions.autoCheckUpdates": false,
+  
+  // Workbench
+  "workbench.startupEditor": "none",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.editor.highlightModifiedTabs": false,
+  
+  // TypeScript/JavaScript
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "typescript.tsserver.maxTsServerMemory": 4096,
+  "javascript.suggest.enabled": false,
+  "typescript.suggest.enabled": true,
+  
+  // Terminal
+  "terminal.integrated.gpuAcceleration": "on",
+  
+  "editor.smoothScrolling": false,
+  "workbench.list.smoothScrolling": false,
+  "terminal.integrated.smoothScrolling": false,
+  
+  "breadcrumbs.enabled": false
+}
