@@ -1,9 +1,45 @@
 {
-  // fast profile
+  // Telemetry
   "telemetry.telemetryLevel": "off",
+  "redhat.telemetry.enabled": false,
   
+  // Theme - High Contrast Dark
+  "workbench.colorTheme": "Dark High Contrast",
+  "workbench.iconTheme": null,
+  "workbench.colorCustomizations": {
+    "editor.background": "#000000",
+    "editor.foreground": "#FFFFFF",
+    "editorLineNumber.foreground": "#858585",
+    "editorCursor.foreground": "#00FF00",
+    "editor.selectionBackground": "#264F78",
+    "editor.inactiveSelectionBackground": "#3A3D41"
+  },
+  
+  // Font - PragmataPro Mono optimized for 2K 150%
+  "editor.fontFamily": "'PragmataPro Mono', 'JetBrains Mono', Consolas, monospace",
+  "editor.fontSize": 15,
+  "editor.lineHeight": 24,
+  "editor.fontWeight": "400",
+  "editor.fontLigatures": true,
+  "editor.letterSpacing": 0,
+  "editor.cursorWidth": 2,
+  "editor.cursorBlinking": "solid",
+  "editor.cursorStyle": "line",
+  
+  // Terminal Font
+  "terminal.integrated.fontFamily": "'PragmataPro Mono', 'JetBrains Mono', monospace",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.lineHeight": 1.5,
+  "terminal.integrated.fontWeight": "400",
+  "terminal.integrated.fontWeightBold": "600",
+  
+  // Debug Console
+  "debug.console.fontSize": 14,
+  "debug.console.lineHeight": 22,
+  
+  // Performance - Suggestions
   "editor.quickSuggestions": {
-    "other": true,
+    "other": "on",
     "comments": false,
     "strings": false
   },
@@ -12,70 +48,313 @@
   "editor.snippetSuggestions": "top",
   "editor.tabCompletion": "on",
   "editor.wordBasedSuggestions": "off",
+  "editor.suggest.localityBonus": true,
+  "editor.suggest.shareSuggestSelections": false,
+  "editor.quickSuggestionsDelay": 0,
+  "editor.suggest.showStatusBar": false,
+  "editor.parameterHints.enabled": true,
   
+  // Disable heavy visual features
   "editor.minimap.enabled": false,
   "editor.codeLens": false,
   "editor.lightbulb.enabled": "off",
   "editor.glyphMargin": false,
   "editor.folding": false,
+  "editor.foldingHighlight": false,
   "editor.matchBrackets": "never",
   "editor.colorDecorators": false,
   "editor.links": false,
   "editor.occurrencesHighlight": "off",
   "editor.selectionHighlight": false,
   "editor.renderLineHighlight": "none",
+  "editor.renderWhitespace": "none",
+  "editor.renderControlCharacters": false,
+  "editor.renderIndentGuides": false,
+  "editor.guides.indentation": false,
+  "editor.guides.bracketPairs": false,
+  "editor.guides.highlightActiveIndentation": false,
+  "editor.hover.delay": 100,
+  "editor.hover.sticky": false,
+  "editor.hover.enabled": true,
+  "editor.inlayHints.enabled": "off",
+  "editor.stickyScroll.enabled": false,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "editor.semanticHighlighting.enabled": false,
+  "editor.bracketPairColorization.enabled": false,
+  "editor.dragAndDrop": false,
+  "editor.accessibilitySupport": "off",
+  "editor.find.addExtraSpaceOnTop": false,
   
+  // Scrolling performance
+  "editor.smoothScrolling": false,
+  "workbench.list.smoothScrolling": false,
+  "terminal.integrated.smoothScrolling": false,
+  "editor.cursorSmoothCaretAnimation": "off",
+  "editor.fastScrollSensitivity": 10,
+  "editor.mouseWheelScrollSensitivity": 1,
+  "editor.scrollBeyondLastLine": false,
+  
+  // Git
   "git.enabled": true,
   "git.autorefresh": false,
   "git.autofetch": false,
   "git.decorations.enabled": false,
+  "git.ignoreLegacyWarning": true,
+  "git.enableStatusBarSync": false,
+  "scm.diffDecorations": "none",
+  "scm.diffDecorationsGutterWidth": 1,
+  "diffEditor.renderSideBySide": false,
+  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.maxComputationTime": 1000,
   
+  // Files
   "files.autoSave": "onFocusChange",
+  "files.hotExit": "off",
+  "files.trimTrailingWhitespace": false,
+  "files.insertFinalNewline": false,
   "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
     "**/node_modules/**": true,
     "**/dist/**": true,
     "**/build/**": true,
-    "**/.next/**": true
+    "**/.next/**": true,
+    "**/target/**": true,
+    "**/__pycache__/**": true,
+    "**/.pytest_cache/**": true,
+    "**/venv/**": true,
+    "**/.venv/**": true,
+    "**/env/**": true
   },
   "files.exclude": {
     "**/.git": true,
     "**/.DS_Store": true,
-    "**/node_modules": true
+    "**/node_modules": true,
+    "**/__pycache__": true,
+    "**/.pytest_cache": true
   },
   
+  // Search
   "search.exclude": {
     "**/node_modules": true,
     "**/dist": true,
     "**/build": true,
     "**/.next": true,
-    "**/coverage": true
+    "**/coverage": true,
+    "**/target": true,
+    "**/__pycache__": true,
+    "**/venv": true,
+    "**/.venv": true,
+    "**/env": true
   },
   "search.followSymlinks": false,
+  "search.smartCase": true,
+  "search.quickOpen.includeHistory": false,
+  "search.quickOpen.includeSymbols": false,
+  "search.useIgnoreFiles": true,
+  "search.maintainFileSearchCache": true,
   
   // Extensions
   "extensions.autoUpdate": false,
   "extensions.autoCheckUpdates": false,
+  "extensions.ignoreRecommendations": true,
+  "extensions.experimental.affinity": {},
   
-  // Workbench
+  // Workbench - Minimal UI
   "workbench.startupEditor": "none",
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.highlightModifiedTabs": false,
+  "workbench.editor.restoreViewState": false,
+  "workbench.editor.tabCloseButton": "off",
+  "workbench.editor.decorations.badges": false,
+  "workbench.editor.decorations.colors": false,
+  "workbench.editor.limit.enabled": false,
+  "workbench.activityBar.location": "hidden",
+  "workbench.statusBar.visible": true,
+  "workbench.tips.enabled": false,
+  "workbench.tree.indent": 12,
+  "workbench.tree.renderIndentGuides": "none",
+  "workbench.layoutControl.enabled": false,
+  "workbench.commandPalette.history": 10,
+  "workbench.hover.delay": 300,
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "workbench.reduceMotion": "on",
   
   // TypeScript/JavaScript
   "typescript.disableAutomaticTypeAcquisition": true,
   "typescript.tsserver.maxTsServerMemory": 4096,
+  "typescript.tsserver.useSyntaxServer": "auto",
+  "typescript.tsserver.experimental.enableProjectDiagnostics": false,
   "javascript.suggest.enabled": false,
   "typescript.suggest.enabled": true,
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "typescript.surveys.enabled": false,
+  "typescript.preferences.importModuleSpecifier": "shortest",
+  "javascript.preferences.importModuleSpecifier": "shortest",
+  "js/ts.implicitProjectConfig.checkJs": false,
   
   // Terminal
   "terminal.integrated.gpuAcceleration": "on",
+  "terminal.integrated.cursorBlinking": false,
+  "terminal.integrated.cursorStyle": "block",
+  "terminal.integrated.fastScrollSensitivity": 10,
+  "terminal.integrated.rendererType": "dom",
+  "terminal.integrated.rightClickBehavior": "default",
+  "terminal.integrated.scrollback": 1000,
+  "terminal.integrated.shell.windows": null,
   
-  "editor.smoothScrolling": false,
-  "workbench.list.smoothScrolling": false,
-  "terminal.integrated.smoothScrolling": false,
+  // Breadcrumbs
+  "breadcrumbs.enabled": false,
   
-  "breadcrumbs.enabled": false
+  // Window
+  "window.title": "${activeEditorShort}${separator}${rootName}",
+  "window.menuBarVisibility": "toggle",
+  "window.dialogStyle": "custom",
+  "window.titleBarStyle": "custom",
+  "window.newWindowDimensions": "inherit",
+  "window.commandCenter": false,
+  "window.restoreWindows": "none",
+  "window.enableMenuBarMnemonics": false,
+  "window.zoomLevel": 0,
+  
+  // Problems
+  "problems.decorations.enabled": false,
+  "problems.showCurrentInStatus": false,
+  "problems.autoReveal": false,
+  
+  // Outline
+  "outline.icons": false,
+  "outline.problems.enabled": false,
+  
+  // Debug
+  "debug.internalConsoleOptions": "neverOpen",
+  "debug.openDebug": "neverOpen",
+  "debug.showInStatusBar": "never",
+  "debug.toolBarLocation": "docked",
+  
+  // Security
+  "security.workspace.trust.enabled": false,
+  "security.workspace.trust.startupPrompt": "never",
+  
+  // Python (если используется)
+  "python.languageServer": "Pylance",
+  "python.analysis.autoImportCompletions": false,
+  "python.analysis.indexing": false,
+  "python.analysis.diagnosticMode": "openFilesOnly",
+  "python.analysis.typeCheckingMode": "off",
+  "[python]": {
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "never"
+    }
+  },
+  
+  // Formatting
+  "editor.formatOnSave": false,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "editor.codeActionsOnSave": {},
+  
+  // HTML/CSS
+  "html.autoClosingTags": true,
+  "html.validate.scripts": false,
+  "css.validate": false,
+  "scss.validate": false,
+  "less.validate": false,
+  
+  // JSON
+  "json.schemaDownload.enable": false,
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    }
+  },
+  
+  // Markdown
+  "markdown.preview.fontSize": 15,
+  "markdown.preview.lineHeight": 1.6,
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    }
+  },
+  
+  // Emmet
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.showSuggestionsAsSnippets": false,
+  
+  // Cursor specific (если Cursor)
+  "cursor.chat.showSuggestedFiles": false,
+  "cursor.general.enableShadowWorkspace": false,
+  
+  // Notifications
+  "update.mode": "none",
+  "update.showReleaseNotes": false,
+  "settingsSync.ignoredExtensions": [],
+  
+  // Syntax highlighting - minimal but readable
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "comment",
+        "settings": {
+          "foreground": "#6A9955",
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": "string",
+        "settings": {
+          "foreground": "#CE9178"
+        }
+      },
+      {
+        "scope": "keyword",
+        "settings": {
+          "foreground": "#569CD6",
+          "fontStyle": "bold"
+        }
+      },
+      {
+        "scope": "variable",
+        "settings": {
+          "foreground": "#9CDCFE"
+        }
+      },
+      {
+        "scope": "function",
+        "settings": {
+          "foreground": "#DCDCAA"
+        }
+      },
+      {
+        "scope": "constant.numeric",
+        "settings": {
+          "foreground": "#B5CEA8"
+        }
+      },
+      {
+        "scope": "entity.name.type",
+        "settings": {
+          "foreground": "#4EC9B0"
+        }
+      }
+    ]
+  },
+  
+  // Windows specific
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "args": ["-NoLogo", "-NoProfile"]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "files.eol": "\n"
 }
