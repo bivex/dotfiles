@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-.PHONY: help bootstrap apply power-user mission-control window-management capture check
+.PHONY: help bootstrap apply power-user mission-control window-management window-management-doctor capture check
 
 help:
 	@echo "dotfiles targets:"
@@ -10,6 +10,7 @@ help:
 	@echo "  make power-user - apply the optional macOS power-user layer"
 	@echo "  make mission-control - apply Mission Control and hot corners"
 	@echo "  make window-management - apply yabai/skhd configs and restart services"
+	@echo "  make window-management-doctor - diagnose yabai/skhd blockers"
 	@echo "  make capture  - capture local zsh/iTerm/Terminal settings"
 	@echo "  make check    - dry-run and smoke-check repo scripts"
 
@@ -27,6 +28,9 @@ mission-control:
 
 window-management:
 	bash macos/window-management/apply_configs.sh
+
+window-management-doctor:
+	bash macos/window-management/doctor.sh
 
 capture:
 	bash scripts/capture_all.sh
