@@ -20,3 +20,12 @@ python3 macos/iterm/apply_dev_profile.py
 ```sh
 python3 macos/iterm/apply_dev_profile.py --dry-run
 ```
+
+### Capture current local profile into dotfiles
+
+```sh
+python3 macos/iterm/capture_current_profile.py
+```
+
+This writes `macos/iterm/dev-profile.snapshot.json`.
+

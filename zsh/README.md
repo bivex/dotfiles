@@ -9,3 +9,10 @@ This repository stores only the reusable interactive dev layer.
 ```
 
 Keep machine-specific PATH exports, tokens, and local integrations in your real `~/.zshrc` or `~/.zprofile`.
+
+### Capture current local dev layer back into dotfiles
+
+```sh
+python3 zsh/capture_dev_layer.py
+```
+

@@ -20,3 +20,12 @@ python3 macos/terminal/apply_dev_profile.py
 ```sh
 python3 macos/terminal/apply_dev_profile.py --dry-run
 ```
+
+### Capture current local profile into dotfiles
+
+```sh
+python3 macos/terminal/capture_current_profile.py
+```
+
+This writes `macos/terminal/dev-profile.snapshot.plist`.
+
