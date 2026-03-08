@@ -1,0 +1,100 @@
+[[ -o interactive ]] || return
+
+# Dev-friendly zsh defaults.
+setopt AUTO_CD
+setopt AUTO_PUSHD PUSHD_IGNORE_DUPS PUSHD_SILENT
+setopt HIST_IGNORE_DUPS HIST_IGNORE_ALL_DUPS HIST_REDUCE_BLANKS
+setopt HIST_VERIFY INC_APPEND_HISTORY SHARE_HISTORY EXTENDED_HISTORY
+setopt INTERACTIVE_COMMENTS NO_BEEP
+
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=50000
+SAVEHIST=50000
+
+typeset -U path PATH cdpath CDPATH
+export PATH
+export CLICOLOR=1
+export LESS='-FRX'
+
+zmodload zsh/complist 2>/dev/null
+autoload -Uz compinit colors vcs_info add-zsh-hook
+colors
+
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' rehash true
+compinit -d "$HOME/.zcompdump"
+
+bindkey -e
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
+bindkey '^P' history-search-backward
+bindkey '^N' history-search-forward
+
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' formats ' %F{cyan}[%b]%f'
+zstyle ':vcs_info:git:*' actionformats ' %F{yellow}[%b|%a]%f'
+
+dev_precmd() {
+  vcs_info
+  if [[ -n "${VIRTUAL_ENV:-}" ]]; then
+    DEV_PY_ENV=" %F{magenta}($(basename "$VIRTUAL_ENV"))%f"
+  else
+    DEV_PY_ENV=''
+  fi
+}
+add-zsh-hook precmd dev_precmd
+
+setopt PROMPT_SUBST
+PROMPT='%F{green}%n@%m%f %F{blue}%~%f${vcs_info_msg_0_}${DEV_PY_ENV} %(?.%F{magenta}❯%f.%F{red}❯%f) '
+RPROMPT='%(?..%F{red}%?%f)'
+
+alias ls='ls -G'
+alias ll='ls -lah'
+alias la='ls -A'
+alias l='ls -CF'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias c='clear'
+alias reloadzsh='source ~/.zshrc'
+
+alias gs='git status -sb'
+alias ga='git add'
+alias gc='git commit'
+alias gd='git diff'
+alias gl='git log --oneline --graph --decorate -20'
+alias gp='git push'
+
+alias py='python3'
+alias d='docker'
+alias dc='docker compose'
+alias k='kubectl'
+
+mkcd() {
+  mkdir -p -- "$1" && cd -- "$1"
+}
+
+croot() {
+  local root
+  root="$(git rev-parse --show-toplevel 2>/dev/null)" || return 1
+  cd -- "$root"
+}
+
+ports() {
+  lsof -nP -iTCP -sTCP:LISTEN
+}
+
+if command -v rg >/dev/null 2>&1; then
+  ff() {
+    rg --files -uu | rg -- "$@"
+  }
+fi
+
+if command -v direnv >/dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+fi
+
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+fi
