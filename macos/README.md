@@ -6,6 +6,7 @@ This directory stores reproducible terminal presets and macOS system defaults.
 
 - `defaults.sh` — Finder, Dock, keyboard, screenshot, trackpad, and UI defaults
 - `power-user.sh` — extra opinionated Finder/Dock/keyboard/UI tweaks
+- `mission-control.sh` — Mission Control and hot corners preset
 - `iterm/` — iTerm Dev profile apply/capture scripts
 - `terminal/` — Terminal.app Dev profile apply/capture scripts
 - `window-management/` — yabai and skhd notes
@@ -22,6 +23,12 @@ bash macos/defaults.sh
 
 ```sh
 bash macos/power-user.sh
+```
+
+### Apply Mission Control + hot corners
+
+```sh
+bash macos/mission-control.sh
 ```
 
 

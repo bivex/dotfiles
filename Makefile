@@ -1,11 +1,12 @@
 SHELL := /bin/bash
 
-.PHONY: help apply power-user capture check
+.PHONY: help apply power-user mission-control capture check
 
 help:
 	@echo "dotfiles targets:"
 	@echo "  make apply    - apply Terminal.app + iTerm Dev presets"
 	@echo "  make power-user - apply the optional macOS power-user layer"
+	@echo "  make mission-control - apply Mission Control and hot corners"
 	@echo "  make capture  - capture local zsh/iTerm/Terminal settings"
 	@echo "  make check    - dry-run and smoke-check repo scripts"
 
@@ -14,6 +15,9 @@ apply:
 
 power-user:
 	bash macos/power-user.sh
+
+mission-control:
+	bash macos/mission-control.sh
 
 capture:
 	bash scripts/capture_all.sh
