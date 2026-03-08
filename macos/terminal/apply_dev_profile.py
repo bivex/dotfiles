@@ -42,7 +42,7 @@ def main() -> int:
     data["Window Settings"] = settings
     data["Default Window Settings"] = "Dev"
     data["Startup Window Settings"] = "Dev"
-    data["SecureKeyboardEntry"] = True
+    data["SecureKeyboardEntry"] = False
 
     if args.dry_run:
         print(json.dumps({

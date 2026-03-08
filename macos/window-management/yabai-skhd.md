@@ -1,6 +1,6 @@
 ## yabai + skhd
 
-### Current `~/.yabairc`
+### Versioned `yabairc`
 
 Layout and spacing:
 
@@ -19,16 +19,25 @@ Mouse and focus:
 - `mouse_action2 resize`
 - `mouse_drop_action swap`
 
-### Current `~/.skhdrc`
+### Versioned `skhdrc`
 
 - `alt + h/j/k/l` — focus west/south/north/east
+- `alt + p` — focus recent window/space
 - `shift + alt + h/j/k/l` — swap west/south/north/east
+- `ctrl + shift + alt + h/j/k/l` — warp west/south/north/east
 - `ctrl + alt + h/j/k/l` — resize window
 - `alt + f` — toggle zoom fullscreen
-- `shift + alt + space` — toggle float
+- `shift + alt + f` — toggle parent zoom
+- `alt + space` — toggle float
+- `shift + alt + p` — toggle sticky/topmost
 - `alt + 0` — rebalance space
+- `ctrl + alt + 1..9` — focus space
+- `ctrl + shift + alt + 1..9` — move window to space and follow it
+- `ctrl + alt + n/b` — focus next/previous display
+- `shift + alt + y` — restart yabai
+- `ctrl + shift + alt + y` — restart skhd
 
 ### Summary
 
 - `yabai`: BSP tiling, auto-balance enabled, gap/padding `8`
-- `skhd`: navigation, swap, resize, zoom, float, and rebalance hotkeys
+- `skhd`: navigation, warp/swap/resize, space/display moves, and service reload hotkeys

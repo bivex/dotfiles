@@ -9,7 +9,7 @@ This directory stores reproducible terminal presets and macOS system defaults.
 - `mission-control.sh` — Mission Control and hot corners preset
 - `iterm/` — iTerm Dev profile apply/capture scripts
 - `terminal/` — Terminal.app Dev profile apply/capture scripts
-- `window-management/` — yabai and skhd notes
+- `window-management/` — real yabai/skhd configs plus apply/capture/check scripts
 
 Use the root `Makefile` or `scripts/*.sh` wrappers to apply or capture both at once.
 

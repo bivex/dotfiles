@@ -32,7 +32,10 @@ Personal development environment presets.
 - `macos/iterm/capture_current_profile.py` — snapshot current iTerm profile into dotfiles
 - `macos/terminal/apply_dev_profile.py` — creates/updates Terminal.app `Dev` profile
 - `macos/terminal/capture_current_profile.py` — snapshot current Terminal.app profile into dotfiles
-- `macos/window-management/yabai-skhd.md` — yabai/skhd notes
+- `macos/window-management/yabairc` — real yabai config
+- `macos/window-management/skhdrc` — real skhd config
+- `macos/window-management/apply_configs.sh` — install and restart yabai/skhd
+- `macos/window-management/capture_current_configs.sh` — sync yabai/skhd back into dotfiles
 - `scripts/apply_all.sh` — apply both macOS terminal presets
 - `scripts/capture_all.sh` — capture all supported dotfiles in one go
 - `scripts/check_all.sh` — dry-run and smoke-check repo scripts

@@ -5,7 +5,7 @@
 	<key>Default Window Settings</key>
 	<string>Dev</string>
 	<key>SecureKeyboardEntry</key>
-	<true/>
+	<false/>
 	<key>Startup Window Settings</key>
 	<string>Dev</string>
 	<key>Window Settings</key>
