@@ -5,6 +5,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(dirname "$SCRIPT_DIR")"
 
 bash "$ROOT_DIR/macos/defaults.sh" --dry-run
+bash "$ROOT_DIR/macos/power-user.sh" --dry-run
 python3 "$ROOT_DIR/macos/iterm/apply_dev_profile.py" --dry-run
 python3 "$ROOT_DIR/macos/terminal/apply_dev_profile.py" --dry-run
 

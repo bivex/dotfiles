@@ -20,6 +20,7 @@ Personal development environment presets.
 - `editors/vscode/settings.json` — VS Code-like settings
 - `formatters/astyle/README.md` — AStyle presets for C# and C++
 - `macos/defaults.sh` — Finder/Dock/keyboard/screenshot/trackpad/UI defaults
+- `macos/power-user.sh` — extra opinionated macOS tweaks
 - `macos/iterm/apply_dev_profile.py` — creates/updates iTerm `Dev` profile
 - `macos/iterm/capture_current_profile.py` — snapshot current iTerm profile into dotfiles
 - `macos/terminal/apply_dev_profile.py` — creates/updates Terminal.app `Dev` profile
@@ -34,6 +35,7 @@ Personal development environment presets.
 
 ```sh
 make apply
+make power-user
 make capture
 make check
 ```
