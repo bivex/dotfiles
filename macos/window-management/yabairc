@@ -2,6 +2,10 @@
 
 export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 
+# Recover after Dock restarts. If you later install the scripting addition,
+# you can replace this with: sudo -n yabai --load-sa || yabai --restart-service
+yabai -m signal --add event=dock_did_restart action="yabai --restart-service"
+
 # Layout
 yabai -m config layout bsp
 yabai -m config auto_balance on

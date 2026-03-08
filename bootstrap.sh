@@ -9,6 +9,7 @@ SKIP_ZSH=0
 SKIP_MACOS=0
 SKIP_POWER_USER=0
 SKIP_MISSION_CONTROL=0
+SKIP_WINDOW_MANAGEMENT=0
 SKIP_TERMINALS=0
 SKIP_CHECK=0
 
@@ -24,6 +25,7 @@ Options:
   --skip-macos           Skip macos/defaults.sh
   --skip-power-user      Skip macos/power-user.sh
   --skip-mission-control Skip macos/mission-control.sh
+  --skip-window-management Skip macos/window-management/apply_configs.sh
   --skip-terminals       Skip iTerm and Terminal.app profile setup
   --skip-check           Skip scripts/check_all.sh at the end
   -h, --help             Show this help
@@ -143,6 +145,7 @@ while [[ $# -gt 0 ]]; do
     --skip-macos) SKIP_MACOS=1 ;;
     --skip-power-user) SKIP_POWER_USER=1 ;;
     --skip-mission-control) SKIP_MISSION_CONTROL=1 ;;
+    --skip-window-management) SKIP_WINDOW_MANAGEMENT=1 ;;
     --skip-terminals) SKIP_TERMINALS=1 ;;
     --skip-check) SKIP_CHECK=1 ;;
     -h|--help) usage; exit 0 ;;
@@ -187,6 +190,13 @@ if [[ "$SKIP_MISSION_CONTROL" -eq 0 ]]; then
     run bash "$ROOT_DIR/macos/mission-control.sh" --dry-run
   else
     run bash "$ROOT_DIR/macos/mission-control.sh"
+  fi
+fi
+if [[ "$SKIP_WINDOW_MANAGEMENT" -eq 0 ]]; then
+  if [[ "$DRY_RUN" -eq 1 ]]; then
+    run bash "$ROOT_DIR/macos/window-management/apply_configs.sh" --dry-run
+  else
+    run bash "$ROOT_DIR/macos/window-management/apply_configs.sh"
   fi
 fi
 if [[ "$SKIP_TERMINALS" -eq 0 ]]; then

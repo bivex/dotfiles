@@ -61,7 +61,7 @@ bash bootstrap.sh
 
 Use `bash bootstrap.sh --with-homebrew` only when you have a `Brewfile` and want `brew bundle` to run.
 
-`bootstrap.sh` also wires the versioned Git layer into `~/.gitconfig` and creates `~/.gitconfig.local` / `~/.gitignore_global` if they do not exist.
+`bootstrap.sh` also wires the versioned Git layer into `~/.gitconfig`, creates `~/.gitconfig.local` / `~/.gitignore_global` if they do not exist, and applies the versioned `yabai/skhd` configs unless you pass `--skip-window-management`.
 
 ### Apply
 
