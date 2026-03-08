@@ -11,6 +11,8 @@ Notes and configs related to macOS window managers and hotkey daemons.
 - `check_configs.sh` — quick sanity checks for the versioned configs
 - `yabai-skhd.md` — summary of the current setup and hotkeys
 
+The versioned `yabairc` also labels spaces `1..4` as `web`, `code`, `git`, and `chat` when those spaces exist.
+
 ### Apply
 
 ```sh

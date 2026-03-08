@@ -21,6 +21,15 @@ yabai -m config left_padding 8
 yabai -m config right_padding 8
 yabai -m config window_gap 8
 
+# Space labels
+label_space() {
+  yabai -m query --spaces --space "$1" >/dev/null 2>&1 && yabai -m space "$1" --label "$2"
+}
+label_space 1 web
+label_space 2 code
+label_space 3 git
+label_space 4 chat
+
 # Mouse / focus
 yabai -m config focus_follows_mouse autoraise
 yabai -m config mouse_follows_focus off
@@ -29,8 +38,16 @@ yabai -m config mouse_action1 move
 yabai -m config mouse_action2 resize
 yabai -m config mouse_drop_action swap
 
+# Space-based workflow
+# 1 = web, 2 = code/term, 3 = git, 4 = chat
+# Requires Mission Control spaces 1..4 to exist.
+yabai -m rule --add app="^(Google Chrome|Safari)$" space=1
+yabai -m rule --add app="^(cmux|Terminal|iTerm|iTerm2|Cursor|Code|Visual Studio Code)$" space=2
+yabai -m rule --add app="^GitKraken$" space=3 manage=off
+yabai -m rule --add app="^(Telegram|Slack|Discord|WhatsApp)$" space=4 manage=off
+
 # Float / utility apps
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^(System Settings|System Information|Activity Monitor|Archive Utility|App Store|Audio MIDI Setup|Calculator|Dictionary|Disk Utility|Font Book|Image Capture)$" manage=off
 yabai -m rule --add app="^1Password$" manage=off
-yabai -m rule --add app="^Picture-in-Picture$" manage=off sticky=on topmost=on
+yabai -m rule --add app="^Picture-in-Picture$" manage=off sticky=on sub-layer=above
