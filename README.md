@@ -8,19 +8,22 @@ Personal development environment presets.
 
 - `zsh/` — reusable interactive shell layer
 - `macos/` — Terminal.app and iTerm presets
+- `editors/` — editor-specific settings
+- `formatters/` — formatter presets and notes
 - `scripts/` — one-shot repo workflows
-- `Cursor/` — Cursor editor settings
-- `vscide/` — VS Code-like editor settings
-- `yabai+skhd.md` — window manager notes
 
 ### Included
 
 - `zsh/.zshrc.dev` — interactive dev shell layer without secrets
 - `zsh/capture_dev_layer.py` — sync current local `~/.zshrc.dev` back into dotfiles
+- `editors/cursor/settings.json` — Cursor settings
+- `editors/vscode/settings.json` — VS Code-like settings
+- `formatters/astyle/README.md` — AStyle presets for C# and C++
 - `macos/iterm/apply_dev_profile.py` — creates/updates iTerm `Dev` profile
 - `macos/iterm/capture_current_profile.py` — snapshot current iTerm profile into dotfiles
 - `macos/terminal/apply_dev_profile.py` — creates/updates Terminal.app `Dev` profile
 - `macos/terminal/capture_current_profile.py` — snapshot current Terminal.app profile into dotfiles
+- `macos/window-management/yabai-skhd.md` — yabai/skhd notes
 - `scripts/apply_all.sh` — apply both macOS terminal presets
 - `scripts/capture_all.sh` — capture all supported dotfiles in one go
 - `scripts/check_all.sh` — dry-run and smoke-check repo scripts
