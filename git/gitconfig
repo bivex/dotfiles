@@ -1,0 +1,56 @@
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = true
+
+[rebase]
+	autoStash = true
+
+[fetch]
+	prune = true
+
+[push]
+	autoSetupRemote = true
+
+[merge]
+	conflictStyle = zdiff3
+
+[rerere]
+	enabled = true
+
+[color]
+	ui = auto
+
+[column]
+	ui = auto
+
+[core]
+	pager = less -FRX
+	excludesFile = ~/.gitignore_global
+
+[credential]
+	helper = osxkeychain
+
+[diff]
+	algorithm = histogram
+	colorMoved = default
+
+[status]
+	branch = true
+	showUntrackedFiles = all
+
+[tag]
+	sort = version:refname
+
+[alias]
+	st = status -sb
+	co = checkout
+	sw = switch
+	br = branch
+	ci = commit
+	ca = commit --amend
+	last = log -1 --stat
+	unstage = restore --staged --
+	recent = for-each-ref --count=12 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+	lg = log --graph --date=short --pretty=format:'%C(auto)%h%d %s %C(black)%C(bold)%cr %C(auto)<%an>'

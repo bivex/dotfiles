@@ -1,0 +1,16 @@
+# [user]
+# 	name = Your Name
+# 	email = you@example.com
+
+# [commit]
+# 	gpgSign = true
+
+# [user]
+# 	signingKey = key-or-empty
+
+# [gpg]
+# 	format = ssh
+
+# [gpg "ssh"]
+# 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+# 	allowedSignersFile = ~/.ssh/allowed_signers

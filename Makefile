@@ -5,6 +5,7 @@ SHELL := /bin/bash
 help:
 	@echo "dotfiles targets:"
 	@echo "  make bootstrap - wire zsh and apply the dotfiles stack safely"
+	@echo "                  (includes git + zsh wiring and local templates)"
 	@echo "  make apply    - apply Terminal.app + iTerm Dev presets"
 	@echo "  make power-user - apply the optional macOS power-user layer"
 	@echo "  make mission-control - apply Mission Control and hot corners"

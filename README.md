@@ -6,6 +6,7 @@ Personal development environment presets.
 
 ### Structure
 
+- `git/` — reusable global git config layer
 - `zsh/` — reusable interactive shell layer
 - `macos/` — Terminal.app and iTerm presets
 - `editors/` — editor-specific settings
@@ -15,6 +16,9 @@ Personal development environment presets.
 ### Included
 
 - `bootstrap.sh` — safe first-run bootstrap for zsh + macOS + terminal presets
+- `git/gitconfig` — shared git defaults, aliases, pager, and behavior
+- `git/gitconfig.local.example` — local-only git identity/signing template
+- `git/gitignore_global` — global Git ignore for OS/editor junk
 - `zsh/.zshrc.dev` — interactive dev shell layer without secrets
 - `zsh/.zshrc.local.example` — machine-local shell overrides template
 - `zsh/capture_dev_layer.py` — sync current local `~/.zshrc.dev` back into dotfiles
@@ -53,6 +57,8 @@ bash bootstrap.sh
 ```
 
 Use `bash bootstrap.sh --with-homebrew` only when you have a `Brewfile` and want `brew bundle` to run.
+
+`bootstrap.sh` also wires the versioned Git layer into `~/.gitconfig` and creates `~/.gitconfig.local` / `~/.gitignore_global` if they do not exist.
 
 ### Apply
 

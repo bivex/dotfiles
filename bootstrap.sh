@@ -4,6 +4,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DRY_RUN=0
 WITH_HOMEBREW=0
+SKIP_GIT=0
 SKIP_ZSH=0
 SKIP_MACOS=0
 SKIP_POWER_USER=0
@@ -18,6 +19,7 @@ Usage: bash bootstrap.sh [options]
 Options:
   --dry-run              Print what would happen without changing anything
   --with-homebrew        Run brew bundle if a Brewfile exists
+  --skip-git             Do not wire ~/.gitconfig and ~/.gitconfig.local
   --skip-zsh             Do not wire ~/.zshrc and ~/.zshrc.local
   --skip-macos           Skip macos/defaults.sh
   --skip-power-user      Skip macos/power-user.sh
@@ -86,10 +88,57 @@ PY
   fi
 }
 
+wire_git() {
+  local gitconfig="$HOME/.gitconfig"
+  local example="$ROOT_DIR/git/gitconfig.local.example"
+  local local_gitconfig="$HOME/.gitconfig.local"
+  local ignore_src="$ROOT_DIR/git/gitignore_global"
+  local ignore_dst="$HOME/.gitignore_global"
+  local backup="${gitconfig}.backup-$(date +%Y%m%d-%H%M%S)"
+  local block_start="# >>> dotfiles bootstrap >>>"
+  local block_end="# <<< dotfiles bootstrap <<<"
+
+  if [[ ! -f "$gitconfig" ]]; then
+    [[ "$DRY_RUN" -eq 1 ]] && echo "+ create $gitconfig" || : > "$gitconfig"
+  else
+    [[ "$DRY_RUN" -eq 1 ]] && echo "+ backup $gitconfig -> $backup" || cp "$gitconfig" "$backup"
+  fi
+
+  if [[ "$DRY_RUN" -eq 1 ]]; then
+    echo "+ ensure managed git bootstrap block in $gitconfig"
+  else
+    python3 - "$gitconfig" "$ROOT_DIR" "$block_start" "$block_end" <<'PY'
+from pathlib import Path
+import sys
+path = Path(sys.argv[1])
+root = sys.argv[2]
+start = sys.argv[3]
+end = sys.argv[4]
+block = f'''{start}\n[include]\n\tpath = {root}/git/gitconfig\n[include]\n\tpath = ~/.gitconfig.local\n{end}\n'''
+text = path.read_text(encoding='utf-8') if path.exists() else ''
+if start in text and end in text:
+    before, rest = text.split(start, 1)
+    _, after = rest.split(end, 1)
+    text = before.rstrip() + '\n\n' + block + after.lstrip('\n')
+else:
+    text = text.rstrip() + ('\n\n' if text.strip() else '') + block
+path.write_text(text if text.endswith('\n') else text + '\n', encoding='utf-8')
+PY
+  fi
+
+  if [[ ! -f "$local_gitconfig" && -f "$example" ]]; then
+    [[ "$DRY_RUN" -eq 1 ]] && echo "+ copy $example -> $local_gitconfig" || cp "$example" "$local_gitconfig"
+  fi
+  if [[ ! -f "$ignore_dst" && -f "$ignore_src" ]]; then
+    [[ "$DRY_RUN" -eq 1 ]] && echo "+ copy $ignore_src -> $ignore_dst" || cp "$ignore_src" "$ignore_dst"
+  fi
+}
+
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --dry-run) DRY_RUN=1 ;;
     --with-homebrew) WITH_HOMEBREW=1 ;;
+    --skip-git) SKIP_GIT=1 ;;
     --skip-zsh) SKIP_ZSH=1 ;;
     --skip-macos) SKIP_MACOS=1 ;;
     --skip-power-user) SKIP_POWER_USER=1 ;;
@@ -104,6 +153,7 @@ done
 
 echo "Bootstrapping dotfiles from $ROOT_DIR"
 
+[[ "$SKIP_GIT" -eq 1 ]] || wire_git
 [[ "$SKIP_ZSH" -eq 1 ]] || wire_zsh
 
 if [[ "$WITH_HOMEBREW" -eq 1 ]]; then

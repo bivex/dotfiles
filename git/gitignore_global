@@ -1,0 +1,13 @@
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+Thumbs.db
+ehthumbs.db
+Icon?
+*.swp
+*.swo
+*~
