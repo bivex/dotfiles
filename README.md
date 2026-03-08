@@ -19,6 +19,7 @@ Personal development environment presets.
 - `editors/cursor/settings.json` — Cursor settings
 - `editors/vscode/settings.json` — VS Code-like settings
 - `formatters/astyle/README.md` — AStyle presets for C# and C++
+- `macos/defaults.sh` — Finder/Dock/keyboard/screenshot/trackpad/UI defaults
 - `macos/iterm/apply_dev_profile.py` — creates/updates iTerm `Dev` profile
 - `macos/iterm/capture_current_profile.py` — snapshot current iTerm profile into dotfiles
 - `macos/terminal/apply_dev_profile.py` — creates/updates Terminal.app `Dev` profile
@@ -39,9 +40,10 @@ make check
 
 ### Apply
 
-1. `python3 macos/iterm/apply_dev_profile.py`
-2. `python3 macos/terminal/apply_dev_profile.py`
-3. Source `zsh/.zshrc.dev` from your local `~/.zshrc`
+1. `bash macos/defaults.sh`
+2. `python3 macos/iterm/apply_dev_profile.py`
+3. `python3 macos/terminal/apply_dev_profile.py`
+4. Source `zsh/.zshrc.dev` from your local `~/.zshrc`
 
 ### Capture current local state back into the repo
 
