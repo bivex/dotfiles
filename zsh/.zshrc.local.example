@@ -1,0 +1,5 @@
+# Local machine-only shell customizations.
+# Keep secrets and machine-specific PATH exports here.
+
+# export PATH="$HOME/.local/bin:$PATH"
+# export MY_API_TOKEN="replace-me"

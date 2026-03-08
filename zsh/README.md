@@ -10,6 +10,8 @@ This repository stores only the reusable interactive dev layer.
 
 Keep machine-specific PATH exports, tokens, and local integrations in your real `~/.zshrc` or `~/.zprofile`.
 
+Use `~/.zshrc.local` for machine-only overrides. A starter template lives at `zsh/.zshrc.local.example`.
+
 ### Capture current local dev layer back into dotfiles
 
 ```sh

@@ -14,7 +14,9 @@ Personal development environment presets.
 
 ### Included
 
+- `bootstrap.sh` — safe first-run bootstrap for zsh + macOS + terminal presets
 - `zsh/.zshrc.dev` — interactive dev shell layer without secrets
+- `zsh/.zshrc.local.example` — machine-local shell overrides template
 - `zsh/capture_dev_layer.py` — sync current local `~/.zshrc.dev` back into dotfiles
 - `editors/cursor/settings.json` — Cursor settings
 - `editors/vscode/settings.json` — VS Code-like settings
@@ -35,12 +37,22 @@ Personal development environment presets.
 ### Quick start
 
 ```sh
+make bootstrap
 make apply
 make power-user
 make mission-control
 make capture
 make check
 ```
+
+### Bootstrap a new machine
+
+```sh
+bash bootstrap.sh --dry-run
+bash bootstrap.sh
+```
+
+Use `bash bootstrap.sh --with-homebrew` only when you have a `Brewfile` and want `brew bundle` to run.
 
 ### Apply
 
